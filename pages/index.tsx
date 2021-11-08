@@ -1,6 +1,8 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import getAllProducts from "../framework/shopify/product/get-all-products";
+import getAllProducts from "@framework/product/get-all-products";
+import { getConfig } from "@framework/api/config";
+import { Layout } from "components/common";
 
 interface Product {
   id: number;
@@ -8,7 +10,9 @@ interface Product {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const products = await getAllProducts();
+  const config = getConfig();
+
+  const products = await getAllProducts(config);
 
   return {
     props: {
@@ -22,7 +26,7 @@ const Home = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const hello = "Hello World";
 
   return (
-    <div>
+    <div className="home">
       <Head>
         <title>{hello}</title>
       </Head>
@@ -31,5 +35,7 @@ const Home = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
     </div>
   );
 };
+
+Home.Layout = Layout;
 
 export default Home;
