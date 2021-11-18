@@ -1,8 +1,8 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import Head from "next/head";
 import getAllProducts from "@framework/product/get-all-products";
 import { getConfig } from "@framework/api/config";
 import { Layout } from "components/common";
+import { ProductCard } from "@components/product";
 
 interface Product {
   id: number;
@@ -23,15 +23,14 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const Home = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const hello = "Hello World";
-
   return (
-    <div className="home">
-      <Head>
-        <title>{hello}</title>
-      </Head>
+    <div className="root">
       <h1>Products</h1>
-      {JSON.stringify(products)}
+      {Array.isArray(products)
+        ? products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))
+        : null}
     </div>
   );
 };
