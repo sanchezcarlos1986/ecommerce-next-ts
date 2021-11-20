@@ -1718,6 +1718,11 @@ classnames@2.2.6:
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
 
+classnames@^2.3.1:
+  version "2.3.1"
+  resolved "https://artifactoryrepo.appslatam.com/artifactory/api/npm/npm/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
+  integrity sha1-38+jiR4wbsHa0QXQ6I9EF7hTXo4=
+
 clean-stack@^2.0.0:
   version "2.2.0"
   resolved "https://artifactoryrepo.appslatam.com/artifactory/api/npm/npm/clean-stack/-/clean-stack-2.2.0.tgz#ee8472dbb129e727b31e8a10a427dee9dfe4008b"
@@ -4857,6 +4862,13 @@ postcss-nested@5.0.6:
   dependencies:
     postcss-selector-parser "^6.0.6"
 
+postcss-nesting@^10.0.2:
+  version "10.0.2"
+  resolved "https://artifactoryrepo.appslatam.com/artifactory/api/npm/npm/postcss-nesting/-/postcss-nesting-10.0.2.tgz#0cf9e81712fe7b6c3005e7d884cce2cb0a06326e"
+  integrity sha1-DPnoFxL+e2wwBefYhMziywoGMm4=
+  dependencies:
+    postcss-selector-parser "6.0.6"
+
 postcss-reporter@^7.0.0:
   version "7.0.4"
   resolved "https://artifactoryrepo.appslatam.com/artifactory/api/npm/npm/postcss-reporter/-/postcss-reporter-7.0.4.tgz#640de7ef30fa89374bc0d5029c307ad2ecda25c3"
@@ -4869,7 +4881,7 @@ postcss-reporter@^7.0.0:
     lodash.sortby "^4.7.0"
     picocolors "^1.0.0"
 
-postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.6:
+postcss-selector-parser@6.0.6, postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.6:
   version "6.0.6"
   resolved "https://artifactoryrepo.appslatam.com/artifactory/api/npm/npm/postcss-selector-parser/-/postcss-selector-parser-6.0.6.tgz#2c5bba8174ac2f6981ab631a42ab0ee54af332ea"
   integrity sha1-LFu6gXSsL2mBq2MaQqsO5UrzMuo=
