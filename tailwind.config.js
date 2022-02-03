@@ -1,4 +1,3 @@
-// tailwind.config.js
 module.exports = {
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: false, // or 'media' or 'class'
@@ -32,6 +31,11 @@ module.exports = {
         blue: "var(--blue)",
         green: "var(--green)",
         red: "var(--red)",
+      },
+      textColor: {
+        base: "var(--text-base)",
+        primary: "var(--text-primary)",
+        secondary: "var(--text-secondary)",
       },
     },
   },
