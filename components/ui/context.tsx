@@ -4,6 +4,7 @@ import React, {
   ReactNode,
   useContext,
   useReducer,
+  useMemo,
 } from "react";
 
 // Interface
@@ -62,14 +63,18 @@ function uiReducer(state: StateValues, action: Action) {
 // Provider
 export const UIProvider: FC<Props> = ({ children }) => {
   const [state, dispatch] = useReducer(uiReducer, initialState);
+
   const openSidebar = () => dispatch({ type: "OPEN_SIDEBAR" });
   const closeSidebar = () => dispatch({ type: "CLOSE_SIDEBAR" });
 
-  const value = {
-    openSidebar,
-    closeSidebar,
-    isSidebarOpen: state.isSidebarOpen,
-  };
+  const value = useMemo(() => {
+    return {
+      openSidebar,
+      closeSidebar,
+      isSidebarOpen: state.isSidebarOpen,
+    };
+  }, [state.isSidebarOpen]);
+
   return <UIContext.Provider value={value}>{children}</UIContext.Provider>;
 };
 

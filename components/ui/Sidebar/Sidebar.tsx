@@ -1,4 +1,9 @@
-import { FC } from "react";
+import { FC, useEffect, useRef } from "react";
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from "body-scroll-lock";
 interface Props {
   children: any;
   isOpen: boolean;
@@ -6,10 +11,22 @@ interface Props {
 }
 
 const Sidebar: FC<Props> = ({ children, isOpen, onClose }) => {
+  const ref = useRef();
+
+  useEffect(() => {
+    if (ref.current) {
+      const element = ref.current;
+
+      isOpen ? disableBodyScroll(element) : enableBodyScroll(element);
+    }
+
+    return () => clearAllBodyScrollLocks();
+  }, [isOpen]);
+
   return (
     <>
       {isOpen ? (
-        <div className="fixed inset-0 overflow-hidden h-full z-50">
+        <div ref={ref} className="fixed inset-0 overflow-hidden h-full z-50">
           <div className="absolute inset-0 overflow-hidden">
             <div
               onClick={onClose}
